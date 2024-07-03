@@ -58,18 +58,24 @@ public class NewJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtR.setEditable(false);
-        txtR.setFont(new java.awt.Font("Dubai Light", 1, 14)); // NOI18N
+        txtR.setBackground(new java.awt.Color(255, 255, 255));
+        txtR.setFont(new java.awt.Font("Dubai", 1, 14)); // NOI18N
         txtR.setForeground(new java.awt.Color(0, 0, 0));
-        txtR.setText("reproduciendo");
-        getContentPane().add(txtR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 300, -1));
+        txtR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 204), 3));
+        txtR.setCaretColor(new java.awt.Color(255, 204, 204));
+        getContentPane().add(txtR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 300, 30));
 
-        play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton-de-play (Custom).png"))); // NOI18N
+        play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Repro.png"))); // NOI18N
+        play.setBorder(null);
+        play.setMaximumSize(new java.awt.Dimension(130, 130));
+        play.setMinimumSize(new java.awt.Dimension(130, 130));
         play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playActionPerformed(evt);
             }
         });
-        getContentPane().add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 490, 70, 60));
+        getContentPane().add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 120, 60));
 
         stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/detener (Custom).png"))); // NOI18N
         stop.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +83,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 stopActionPerformed(evt);
             }
         });
-        getContentPane().add(stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 70, 60));
+        getContentPane().add(stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 70, 60));
 
         replay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/musica (Custom).png"))); // NOI18N
         replay.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +91,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 replayActionPerformed(evt);
             }
         });
-        getContentPane().add(replay, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 480, 60, 60));
+        getContentPane().add(replay, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 40, 40));
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
@@ -108,6 +114,7 @@ public class NewJFrame extends javax.swing.JFrame {
         lista.setBackground(new java.awt.Color(204, 255, 204));
         lista.setForeground(new java.awt.Color(0, 0, 0));
         lista.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        lista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 153), 2));
         getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 150, -1));
 
         pause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton-de-pausa-de-video (Custom).png"))); // NOI18N
@@ -116,7 +123,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 pauseActionPerformed(evt);
             }
         });
-        getContentPane().add(pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 70, 60));
+        getContentPane().add(pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 70, 60));
 
         prewiev.setText("siguente");
         prewiev.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +131,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 prewievActionPerformed(evt);
             }
         });
-        getContentPane().add(prewiev, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 480, 70, 60));
+        getContentPane().add(prewiev, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 70, 60));
 
         next.setText("next");
         next.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +139,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 nextActionPerformed(evt);
             }
         });
-        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 70, 60));
+        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 610));
