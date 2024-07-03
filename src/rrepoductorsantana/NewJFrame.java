@@ -11,7 +11,10 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.DefaultComboBoxModel;
 import java.util.HashMap;
+import javax.sound.sampled.FloatControl;
 import javax.swing.ImageIcon;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 public class NewJFrame extends javax.swing.JFrame {
 
@@ -35,6 +38,16 @@ public class NewJFrame extends javax.swing.JFrame {
                 playAudio(nombreArchivo);
             }
         });
+                volumeSlider.addChangeListener(new ChangeListener() {
+            public void stateChanged(ChangeEvent e) {
+                if (clip != null) {
+                    FloatControl volumeControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+                    float volume = volumeSlider.getValue() / 100.0f; // Convertir a rango 0.0 - 1.0
+                    float dB = (float) (Math.log(volume == 0.0 ? 0.0001 : volume) / Math.log(10.0) * 20.0);
+                    volumeControl.setValue(dB);
+                }
+            }
+        });
 
     }
 
@@ -53,6 +66,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pause = new javax.swing.JButton();
         prewiev = new javax.swing.JButton();
         next = new javax.swing.JButton();
+        volumeSlider = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -69,8 +83,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
         play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Repro.png"))); // NOI18N
         play.setBorder(null);
-        play.setMaximumSize(new java.awt.Dimension(130, 130));
-        play.setMinimumSize(new java.awt.Dimension(130, 130));
         play.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playActionPerformed(evt);
@@ -149,6 +161,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 60));
+        getContentPane().add(volumeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 610));
@@ -359,5 +372,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton replay;
     private javax.swing.JButton stop;
     private javax.swing.JTextField txtR;
+    private javax.swing.JSlider volumeSlider;
     // End of variables declaration//GEN-END:variables
 }
