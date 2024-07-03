@@ -46,6 +46,7 @@ public class NewJFrame extends javax.swing.JFrame {
         play = new javax.swing.JButton();
         stop = new javax.swing.JButton();
         replay = new javax.swing.JButton();
+        Reproducir = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jlbGif = new javax.swing.JLabel();
         lista = new javax.swing.JComboBox<>();
@@ -75,7 +76,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 playActionPerformed(evt);
             }
         });
-        getContentPane().add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 470, 120, 60));
+        getContentPane().add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 120, 60));
 
         stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/detener (Custom).png"))); // NOI18N
         stop.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +93,14 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
         getContentPane().add(replay, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 40, 40));
+
+        Reproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Repro.png"))); // NOI18N
+        Reproducir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReproducirMouseClicked(evt);
+            }
+        });
+        getContentPane().add(Reproducir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 140, 60));
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
@@ -196,6 +205,14 @@ public class NewJFrame extends javax.swing.JFrame {
             lista.setSelectedIndex(currentAudioIndex);
         }
     }//GEN-LAST:event_nextActionPerformed
+
+    private void ReproducirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReproducirMouseClicked
+         if (clip != null && clip.isRunning()) {
+            clip.stop();
+        }
+        txtR.setText((String) lista.getSelectedItem());
+        clip.start();
+    }//GEN-LAST:event_ReproducirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -330,6 +347,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Reproducir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbGif;
