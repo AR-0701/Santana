@@ -56,16 +56,15 @@ public class NewJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         txtR = new javax.swing.JTextField();
-        play = new javax.swing.JButton();
-        stop = new javax.swing.JButton();
-        replay = new javax.swing.JButton();
         Reproducir = new javax.swing.JLabel();
+        pauses = new javax.swing.JLabel();
+        stopp = new javax.swing.JLabel();
+        replays = new javax.swing.JLabel();
+        nextt = new javax.swing.JLabel();
+        prewievv = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jlbGif = new javax.swing.JLabel();
         lista = new javax.swing.JComboBox<>();
-        pause = new javax.swing.JButton();
-        prewiev = new javax.swing.JButton();
-        next = new javax.swing.JButton();
         volumeSlider = new javax.swing.JSlider();
         jLabel1 = new javax.swing.JLabel();
 
@@ -79,32 +78,7 @@ public class NewJFrame extends javax.swing.JFrame {
         txtR.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 204), 3));
         txtR.setCaretColor(new java.awt.Color(255, 204, 204));
-        getContentPane().add(txtR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 350, 300, 30));
-
-        play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Repro.png"))); // NOI18N
-        play.setBorder(null);
-        play.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playActionPerformed(evt);
-            }
-        });
-        getContentPane().add(play, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 120, 60));
-
-        stop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/detener (Custom).png"))); // NOI18N
-        stop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stopActionPerformed(evt);
-            }
-        });
-        getContentPane().add(stop, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 70, 60));
-
-        replay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/musica (Custom).png"))); // NOI18N
-        replay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                replayActionPerformed(evt);
-            }
-        });
-        getContentPane().add(replay, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 40, 40));
+        getContentPane().add(txtR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, 300, 30));
 
         Reproducir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Repro.png"))); // NOI18N
         Reproducir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,25 +86,71 @@ public class NewJFrame extends javax.swing.JFrame {
                 ReproducirMouseClicked(evt);
             }
         });
-        getContentPane().add(Reproducir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 140, 60));
+        getContentPane().add(Reproducir, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 140, 60));
 
+        pauses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton-de-pausa.png"))); // NOI18N
+        pauses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pausesMouseClicked(evt);
+            }
+        });
+        getContentPane().add(pauses, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 440, -1, -1));
+
+        stopp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/detener.png"))); // NOI18N
+        stopp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stoppMouseClicked(evt);
+            }
+        });
+        getContentPane().add(stopp, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 60, 60));
+
+        replays.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/regreso (1).png"))); // NOI18N
+        replays.setMaximumSize(new java.awt.Dimension(41, 41));
+        replays.setMinimumSize(new java.awt.Dimension(41, 41));
+        replays.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                replaysMouseClicked(evt);
+            }
+        });
+        getContentPane().add(replays, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 470, 40, 40));
+
+        nextt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/next.png"))); // NOI18N
+        nextt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nexttMouseClicked(evt);
+            }
+        });
+        getContentPane().add(nextt, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 510, -1, 60));
+
+        prewievv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/antess.png"))); // NOI18N
+        prewievv.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prewievvMouseClicked(evt);
+            }
+        });
+        getContentPane().add(prewievv, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 510, -1, 60));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
 
         jlbGif.setBackground(new java.awt.Color(255, 255, 204));
+        jlbGif.setForeground(new java.awt.Color(255, 255, 255));
         jlbGif.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(255, 255, 255), new java.awt.Color(255, 255, 255), null, null));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbGif, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jlbGif, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jlbGif, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+            .addComponent(jlbGif, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 300, 280));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 310, 300));
 
         lista.setBackground(new java.awt.Color(204, 255, 204));
         lista.setForeground(new java.awt.Color(0, 0, 0));
@@ -138,86 +158,16 @@ public class NewJFrame extends javax.swing.JFrame {
         lista.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 255, 153), 2));
         getContentPane().add(lista, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 150, -1));
 
-        pause.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/boton-de-pausa-de-video (Custom).png"))); // NOI18N
-        pause.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseActionPerformed(evt);
-            }
-        });
-        getContentPane().add(pause, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 70, 60));
-
-        prewiev.setText("siguente");
-        prewiev.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                prewievActionPerformed(evt);
-            }
-        });
-        getContentPane().add(prewiev, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 70, 60));
-
-        next.setText("next");
-        next.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextActionPerformed(evt);
-            }
-        });
-        getContentPane().add(next, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, 70, 60));
-        getContentPane().add(volumeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, -1, -1));
+        volumeSlider.setBackground(new java.awt.Color(255, 204, 255));
+        volumeSlider.setForeground(new java.awt.Color(153, 0, 153));
+        volumeSlider.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().add(volumeSlider, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, 300, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Fondo (1).png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void playActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playActionPerformed
-        if (clip != null && clip.isRunning()) {
-            clip.stop();
-        }
-        txtR.setText((String) lista.getSelectedItem());
-        clip.start();
-    }//GEN-LAST:event_playActionPerformed
-
-    private void stopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopActionPerformed
-        if (clip != null) {
-            clip.stop();
-            clip.setFramePosition(0);
-        }
-    }//GEN-LAST:event_stopActionPerformed
-
-    private void replayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_replayActionPerformed
-        clip.setFramePosition(0);
-        clip.start();
-    }//GEN-LAST:event_replayActionPerformed
-
-    private void pauseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseActionPerformed
-        if (clip != null) {
-            clip.stop();
-        }
-    }//GEN-LAST:event_pauseActionPerformed
-
-    private void prewievActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prewievActionPerformed
-        clip.stop();
-        if (audioFiles != null && audioFiles.length > 0) {
-            if (clip != null && clip.isRunning()) {
-                clip.stop();
-            }
-            currentAudioIndex = (currentAudioIndex - 1 + audioFiles.length) % audioFiles.length;
-            playAudio(audioFiles[currentAudioIndex]);
-            lista.setSelectedIndex(currentAudioIndex);
-        }
-    }//GEN-LAST:event_prewievActionPerformed
-
-    private void nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextActionPerformed
-        clip.stop();
-        if (audioFiles != null && audioFiles.length > 0) {
-            if (clip != null && clip.isRunning()) {
-                clip.stop();
-            }
-            currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length;
-            playAudio(audioFiles[currentAudioIndex]);
-            lista.setSelectedIndex(currentAudioIndex);
-        }
-    }//GEN-LAST:event_nextActionPerformed
 
     private void ReproducirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReproducirMouseClicked
          if (clip != null && clip.isRunning()) {
@@ -226,6 +176,48 @@ public class NewJFrame extends javax.swing.JFrame {
         txtR.setText((String) lista.getSelectedItem());
         clip.start();
     }//GEN-LAST:event_ReproducirMouseClicked
+
+    private void replaysMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_replaysMouseClicked
+  clip.setFramePosition(0);
+        clip.start();
+    }//GEN-LAST:event_replaysMouseClicked
+
+    private void pausesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pausesMouseClicked
+        if (clip != null) {
+            clip.stop();
+        }
+    }//GEN-LAST:event_pausesMouseClicked
+
+    private void stoppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stoppMouseClicked
+         if (clip != null) {
+            clip.stop();
+            clip.setFramePosition(0);
+        }
+    }//GEN-LAST:event_stoppMouseClicked
+
+    private void prewievvMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prewievvMouseClicked
+       clip.stop();
+        if (audioFiles != null && audioFiles.length > 0) {
+            if (clip != null && clip.isRunning()) {
+                clip.stop();
+            }
+            currentAudioIndex = (currentAudioIndex - 1 + audioFiles.length) % audioFiles.length;
+            playAudio(audioFiles[currentAudioIndex]);
+            lista.setSelectedIndex(currentAudioIndex);
+        }
+    }//GEN-LAST:event_prewievvMouseClicked
+
+    private void nexttMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nexttMouseClicked
+   clip.stop();
+        if (audioFiles != null && audioFiles.length > 0) {
+            if (clip != null && clip.isRunning()) {
+                clip.stop();
+            }
+            currentAudioIndex = (currentAudioIndex + 1) % audioFiles.length;
+            playAudio(audioFiles[currentAudioIndex]);
+            lista.setSelectedIndex(currentAudioIndex);
+        }
+    }//GEN-LAST:event_nexttMouseClicked
 
     /**
      * @param args the command line arguments
@@ -365,12 +357,11 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlbGif;
     private javax.swing.JComboBox<String> lista;
-    private javax.swing.JButton next;
-    private javax.swing.JButton pause;
-    private javax.swing.JButton play;
-    private javax.swing.JButton prewiev;
-    private javax.swing.JButton replay;
-    private javax.swing.JButton stop;
+    private javax.swing.JLabel nextt;
+    private javax.swing.JLabel pauses;
+    private javax.swing.JLabel prewievv;
+    private javax.swing.JLabel replays;
+    private javax.swing.JLabel stopp;
     private javax.swing.JTextField txtR;
     private javax.swing.JSlider volumeSlider;
     // End of variables declaration//GEN-END:variables
